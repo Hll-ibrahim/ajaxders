@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\BottleController;
+use App\Http\Controllers\RouteController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\product;
@@ -17,26 +19,9 @@ use Yajra\DataTables\DataTables;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::post('/post',function (Request $request){
-
-    $request->validate([
-        'title'=>'required',
-        'content'=>'required',
-    ],[
-        'title.required' => 'Title alanı boş bırakılamaz!',
-        'content.required' => 'Content alanı boş bırakılamaz!',
-    ]);
-
-    $product = new product;
-    $product->title = $request->title;
-    $product->content = $request->content;
-    $product->save();
-    return response()->json(['message'=>'Başarıyla eklendi']);
-
-})->name('post');
+Route::get('/',[BottleController::class, 'index']);
+Route::get('/create',[BottleController::class, 'create']);
+Route::post('/create',[BottleController::class, 'createPost'])->name('createPost');
 
 Route::get('get',function (){
 
