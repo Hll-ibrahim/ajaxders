@@ -10,11 +10,6 @@
     <title>Document</title>
 </head>
 <body>
-@if(session('message'))
-    <div class="alert alert-success">
-        {{ session('message') }}
-    </div>
-@endif
 
 @if($errors->any())
     <div class="alert alert-danger">
@@ -33,5 +28,10 @@
     <input type="text" name="litre" class="form-control">
     <button type="submit">Ekle</button>
 </form>
+<div class="card-footer">
+    <a href="{{route('index')}}">
+        <button class="btn btn-primary">Ana sayfa</button>
+    </a>
+</div>
 </body>
 </html>

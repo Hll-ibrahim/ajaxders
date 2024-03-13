@@ -37,6 +37,6 @@ class BottleController extends Controller
         $bottle->fiyat = $request->fiyat;
         $bottle->litre = $request->litre;
         $bottle->save();
-        return redirect()->back()->with(['message'=>'İşlem başarılı']);
+        return redirect()->route('index')->with(['message'=>'İşlem başarılı']);
     }
 }

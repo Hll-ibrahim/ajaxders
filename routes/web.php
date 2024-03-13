@@ -19,8 +19,8 @@ use Yajra\DataTables\DataTables;
 |
 */
 
-Route::get('/',[BottleController::class, 'index']);
-Route::get('/create',[BottleController::class, 'create']);
+Route::get('/',[BottleController::class, 'index'])->name('index');
+Route::get('/create',[BottleController::class, 'create'])->name('create');
 Route::post('/create',[BottleController::class, 'createPost'])->name('createPost');
 
 Route::get('get',function (){

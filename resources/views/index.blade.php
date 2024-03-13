@@ -9,23 +9,41 @@
     <title>Document</title>
 </head>
 <body>
-<table>
-    <tr>
-        <th>İsim</th>
-        <th>litre</th>
-        <th>Renk</th>
-        <th>fiyat</th>
-    </tr>
-    @foreach($bottles as $bottle)
-        <tr>
-            <td>{{$bottle->marka}}</td>
-            <td>{{$bottle->litre}}</td>
-            <td>{{$bottle->renk}}</td>
-            <td>{{$bottle->fiyat}}</td>
-        </tr>
-    @endforeach
-</table>
+@if(session('message'))
+    <div class="alert alert-success">
+        {{ session('message') }}
+    </div>
+@endif
 
+
+<div class="container">
+
+    <div class="card">
+        <div class="card-body">
+            <table>
+                <tr>
+                    <th>İsim</th>
+                    <th>litre</th>
+                    <th>Renk</th>
+                    <th>fiyat</th>
+                </tr>
+                @foreach($bottles as $bottle)
+                    <tr>
+                        <td>{{$bottle->marka}}</td>
+                        <td>{{$bottle->litre}}</td>
+                        <td>{{$bottle->renk}}</td>
+                        <td>{{$bottle->fiyat}}</td>
+                    </tr>
+                @endforeach
+            </table>
+        </div>
+        <div class="card-footer">
+           <a href="{{route('create')}}">
+               <button class="btn btn-primary">Ekle</button>
+           </a>
+        </div>
+    </div>
+</div>
 
 <div>
 
